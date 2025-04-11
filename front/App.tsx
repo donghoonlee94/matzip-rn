@@ -1,14 +1,11 @@
-import {NavigationContainer} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import AuthStackNavigator from './src/navigation/AuthStackNavigator';
+import React from 'react';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import RootNavigator from './src/navigations/root/RootNavigator';
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <AuthStackNavigator />
-      </NavigationContainer>
+      <RootNavigator />
     </SafeAreaView>
   );
 }
