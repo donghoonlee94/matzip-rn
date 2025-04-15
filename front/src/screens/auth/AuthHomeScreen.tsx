@@ -1,5 +1,13 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  Dimensions,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {AuthStackParamList} from '../../navigations/stack/AuthStackNavigator';
 import {type StackScreenProps} from '@react-navigation/stack';
 import {authNavigations} from '../../constants/navigations';
@@ -11,10 +19,16 @@ type AuthHomeScreenProps = StackScreenProps<
 >;
 
 function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
-  console.log('AuthHomeScreen');
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View style={styles.imageContainer}>
+        <Image
+          resizeMode="contain"
+          source={require('../../assets/images/matzip.png')}
+          style={styles.image}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
         <CustomButton
           label="로그인 페이지로 이동"
           onPress={() => navigation.navigate(authNavigations.LOGIN)}
@@ -30,7 +44,23 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    margin: 30,
+    alignItems: 'center',
+  },
+  imageContainer: {
+    flex: 1.5,
+    width: Dimensions.get('screen').width / 2,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  buttonContainer: {
+    flex: 1,
+    gap: 10,
+  },
 });
 
 export default AuthHomeScreen;
